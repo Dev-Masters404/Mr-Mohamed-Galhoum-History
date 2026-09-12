@@ -256,3 +256,15 @@ form.addEventListener('submit', (e) => {
   const message = lines.filter(Boolean).join('\n');
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 });
+// ===== Auto slideshow (gallery) =====
+const slides = document.querySelectorAll('#slideshow .slide');
+let currentSlide = 0;
+const SLIDE_INTERVAL = 3500; // كل كام ثانية تتغير الصورة (بالميلي ثانية)
+
+if (slides.length > 1) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, SLIDE_INTERVAL);
+}

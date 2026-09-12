@@ -339,3 +339,42 @@ html[lang="en"] .lang-toggle__en { color: var(--brass-300); font-weight: 700; }
   .stages-list { flex-wrap: wrap; row-gap: 14px; }
   .booking-form { grid-template-columns: 1fr; }
 }
+.gallery {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16 / 10;
+  margin: 2rem auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  background-color: #14100d; /* يملأ الفراغ حوالين أي صورة أصغر من الفريم */
+}
+
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.slideshow .slide.active {
+  opacity: 1;
+}
+
+/* الصورة الأولى بس تتصغر شوية جوه الفريم بدل ما تملاه بالكامل */
+.slideshow .slide:first-child {
+  max-width: 85%;
+  max-height: 85%;
+}
